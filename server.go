@@ -2,6 +2,7 @@ package todo
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 	"time"
 )
@@ -18,6 +19,7 @@ func (s *Server) Run(port string, handler http.Handler) error {
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
 	}
+	fmt.Printf("Listening on port %s\n", port)
 	return s.httpServer.ListenAndServe()
 }
 
